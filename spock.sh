@@ -26,3 +26,11 @@ done
 
 #dialog --backtitle "SPOCK v1.0" --title "/boot location" --radiolist "Chosse partition with /boot" 10 60 5 $cmd
 
+
+#dialog --backtitle "SPOCK v1.0" --title "Remote Server" --inputbox "Input hostname or IP of remote server" 10 50
+
+#dialog --backtitle "SPOCK v1.0" --title "Remote Server" --inputbox "Input login" 10 50
+
+#dialog --backtitle "SPOCK v1.0" --title "Remote Server" --passwordbox "Input password to remote server" 10 50
+
+#dialog --backtitle "SPOCK v1.0" --title "Remote Server" --inputbox "Destination dir for operations" 10 50
