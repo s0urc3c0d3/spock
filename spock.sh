@@ -79,7 +79,16 @@ do
 	mountpoint=$(strings /tmp/mountpoint)
 	password=$(strings /tmp/password)
 
-	echo $password | sshfs ${username}@${servername}:${mountpoint} /mnt/remote -o password_stdin
+	echo $password | sshfs ${username}@${servername}: /mnt/home -o password_stdin -o CheckHostIP="no" -o uid=0 -o gid=0 -o umask=7077
+
+	ssh-keygen -t rsa -b 4096 -f ~/.ssh/spock -N ""
+	if ! [ -d /mnt/home/.ssh ]; then mkdir /mnt/home/.ssh; chmod 0600 /mnt/home/.ssh; fi
+	cp ~/.ssh/spock.pub /mnt/home/.ssh/
+	if ! [ -f /mnt/home/.ssh/authorized_keys ]; then touch /mnt/home/.ssh/authorized_keys ; fi
+	cp /mnt/home/.ssh/authorized_keys /mnt/home/.ssh/authorized_keys_old
+	cat ~/.ssh/spock.pub >> /mnt/home/.ssh/authorized_keys
+
+	echo $password | sshfs ${username}@${servername}:${mountpoint} /mnt/remote -o password_stdin -o CheckHostIP="no" -o uid=0 -o gid=0 -o umask=7077
 
 	error=$?
 
