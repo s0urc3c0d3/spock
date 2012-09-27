@@ -66,16 +66,16 @@ LB_HOSTNAME="debian"
 LB_ISO_APPLICATION="Debian Live"
 
 # $LB_ISO_PREPARER: set iso preparer
-# (Default: live-build $VERSION; http://packages.qa.debian.org/live-build)
-LB_ISO_PREPARER="live-build $VERSION; http://packages.qa.debian.org/live-build"
+# (Default: live-build 2.0.12-1; http://packages.qa.debian.org/live-build)
+LB_ISO_PREPARER="live-build 2.0.12-1; http://packages.qa.debian.org/live-build"
 
 # $LB_ISO_PUBLISHER: set iso publisher
 # (Default: Debian Live project; http://live.debian.net/; debian-live@lists.debian.org)
 LB_ISO_PUBLISHER="Debian Live project; http://live.debian.net/; debian-live@lists.debian.org"
 
 # $LB_ISO_VOLUME: set iso volume (max 32 chars)
-# (Default: Debian squeeze $(date +%Y%m%d-%H:%M))
-LB_ISO_VOLUME="Debian squeeze $(date +%Y%m%d-%H:%M)"
+# (Default: Debian squeeze 20120928-00:48)
+LB_ISO_VOLUME="Debian squeeze 20120928-00:48"
 
 # $LB_JFFS2_ERASEBLOCK: set jffs2 eraseblock size
 # (Default: unset)

@@ -64,8 +64,8 @@ LB_DEBCONF_NOWARNINGS="yes"
 LB_DEBCONF_PRIORITY="critical"
 
 # $LB_INITRAMFS: set initramfs hook
-# (Default: auto)
-LB_INITRAMFS="auto"
+# (Default: live-initramfs)
+LB_INITRAMFS="live-initramfs"
 
 # $LB_FDISK: set fdisk program
 # (Default: autodetected)
@@ -128,5 +128,5 @@ _QUIET="false"
 # Internal stuff (FIXME)
 APT_OPTIONS="--yes"
 APTITUDE_OPTIONS="--assume-yes"
-GZIP_OPTIONS="--best --rsyncable"
+GZIP_OPTIONS="--best  --rsyncable"
 ISOHYBRID_OPTIONS=""
