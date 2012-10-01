@@ -94,9 +94,21 @@ do
 
 done
 
+lcpus=$(ssh ${username}@${servername} -i ${HOME}/.ssh/spock 'lscpu | grep "CPU(s)" | awk "{print \$2}"')
+lmem=$(ssh ${username}@${servername} -i ${HOME}/.ssh/spock 'free -m | head -n 2 | tail -n 1 | awk "{print \$2}"')
 
-dialog --backtitle "SPOCK v1.0" --title "Processors" --inputbox "Number of CPUs for VM" 10 50 2> /tmp/procnum
+cpus=$(($lcpus+1))
+while ! [ $cpus -le $lcpus ] || ! [ $cpus -gt 0 ];
+do
+	dialog --backtitle "SPOCK v1.0" --title "Processors" --inputbox "Number of CPUs for VM (1-$lcpus)" 10 50 2> /tmp/procnum
+cpus=$(cat /tmp/procnum)
+done
 
-dialog --backtitle "SPOCK v1.0" --title "Memory" --inputbox "Memory in MB for VM" 10 50 2> /tmp/memory
+mem=$(($lmem+1))
+while ! [ $mem -le $lmem ] || ! [ $mem -gt 0 ];
+do
+	dialog --backtitle "SPOCK v1.0" --title "Memory" --inputbox "Memory in MB for VM (1-$lmem)" 10 50 2> /tmp/memory
+mem=$(cat /tmp/memory)
+done
 
 
